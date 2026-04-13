@@ -27,6 +27,12 @@ return {
 
       require('nvim-dap-virtual-text').setup {}
 
+      vim.api.nvim_set_hl(0, 'DapBreakpoint', { fg = '#ff0000', bg = 'NONE' })
+      vim.api.nvim_set_hl(0, 'DapStopped', { fg = '#025beb', bg = 'NONE' })
+
+      vim.fn.sign_define('DapBreakpoint', { text = '●', texthl = 'DapBreakpoint', linehl = '', numhl = '' })
+      vim.fn.sign_define('DapStopped', { text = '●', texthl = 'DapStopped', linehl = '', numhl = '' })
+
       -- Handled by nvim-dap-go
       dap.adapters.go = {
         type = 'server',
